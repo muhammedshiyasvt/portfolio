@@ -8,17 +8,28 @@ let val = () => {
     var email = document.getElementById("email");
     var subject = document.getElementById("subject");
     var message = document.getElementById("message");
+    let nameReg = /^[a-zA-Z\s]+$/;
+        let emailReg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
     
     if (name.value == "") {
         alert("please enter your name")
         document.form1.username.focus();
         return false;
     }
+     if (!nameReg.test(name.value)){
+        alert("please enter only alphabets")
+        return false;   
+     }
     if (email.value == "") {
         alert("please enter your email");
         document.form1.username.focus();
         return false;
     }
+    if (!emailReg.test(email.value)){
+        alert("please enter valid email")
+        return false;   
+     }
+
     if (subject.value == "") {
         alert("please enter subject");
         document.form1.username.focus();
@@ -29,6 +40,11 @@ let val = () => {
         document.form1.username.focus();
         return false;
     }
+    if (message.value.length<5){
+        alert("please enter atleast 5 chracters")
+        return false;
+    }
+
     return true;
     
 }
